@@ -1,0 +1,84 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "@debug [default]",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "args": [
+        "--dart-define=env=dev",
+        "--dart-define=app_name=nc_flutter_google_maps_dev"
+      ],
+    },
+    {
+      "name": "@debug [chrome:80]",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "deviceId": "chrome",
+      "args": [
+        "--web-hostname=localhost",
+        "--web-port=80",
+        "--web-renderer=html"
+      ],
+    },
+    {
+      "name": "@debug [chrome:5000]",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "debug",
+      "deviceId": "chrome",
+      "args": [
+        "--web-hostname=localhost",
+        "--web-port=5000",
+        "--web-renderer=html"
+      ],
+    },
+    {
+      "name": "@profile [default]",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "profile"
+    },
+    {
+      "name": "@release [default]",
+      "request": "launch",
+      "type": "dart",
+      "flutterMode": "release"
+    },
+    // {
+    //   "name": "nc_flutter_template (dev)",
+    //   "request": "launch",
+    //   "type": "dart",
+    //   "program": "lib/main.dart",
+    //   "args": [
+    //     "--dart-define=env=dev",
+    //     "--dart-define=app_name=nc_flutter_template_dev"
+    //   ],
+    // },
+    // {
+    //   "name": "nc_flutter_template (stage)",
+    //   "request": "launch",
+    //   "type": "dart",
+    //   "program": "lib/main.dart",
+    //   "args": [
+    //     "--dart-define=env=stage",
+    //     "--dart-define=app_name=nc_flutter_template_stage"
+    //   ],
+    // },
+    // {
+    //   "name": "nc_flutter_template (prod)",
+    //   "request": "launch",
+    //   "type": "dart",
+    //   "program": "lib/main.dart",
+    //   "args": [
+    //     "--dart-define=env=prod",
+    //     "--dart-define=app_name=nc_flutter_template"
+    //   ],
+    // },
+  ]
+}

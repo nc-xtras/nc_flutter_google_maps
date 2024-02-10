@@ -1,16 +1,44 @@
-# nc_flutter_google_maps
+<div align=center>
+<a href="https://nostracode.com">
+<img src="assets/images/nostra_logo.png">
+</a>
+</div>
 
-A new Flutter project.
+<div align=center>
+<p style="font-size: 26px; font-weight: bold;">NC Flutter Google Maps</p>
+<p>Flutter project combined with Google Maps API</p>
+</div>
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📋 Table of Contents
 
-A few resources to get you started if this is your first Flutter project:
+- [Section 1](#section_1)
+- [Section 2](#section_2)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## 🏷️ Section 1 <a name = "section_1"></a>
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- [reference 1](https://nostracode.com)
+- [reference 2](https://nostracode.com)
+- [reference 3](https://nostracode.com)
+
+## 🏷️ Section 2 <a name = "section_2"></a>
+
+line break 1<br>
+line break 2<br>
+line break 3<br>
+<br>
+command
+
+> flutter doctor
+
+main.dart
+
+```dart
+void main() async {
+  // todo: uncomment line below to init repo.mock files
+  // await Mocks.instance.init();
+  await inits();
+  runApp(const App());
+}
+```
