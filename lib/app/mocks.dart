@@ -11,5 +11,6 @@ class Mocks {
 
   injectMocks() {
     Repo.sample.injectMock(() => SampleRepoMock());
+    Repo.maps.injectMock(() => MapsRepoMock());
   }
 }
