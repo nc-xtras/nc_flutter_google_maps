@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'dart:math';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';

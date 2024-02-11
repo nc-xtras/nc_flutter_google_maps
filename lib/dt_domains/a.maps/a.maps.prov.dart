@@ -30,7 +30,7 @@ class MapsProv {
   );
 
   final rxZoom = RM.inject<double>(
-    () => 0.0,
+    () => kIsWeb ? 3 : 0.0, //web has default zoom level
     autoDisposeWhenNotUsed: false,
   );
 }

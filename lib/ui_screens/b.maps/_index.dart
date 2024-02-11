@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
@@ -13,7 +11,7 @@ part 'b.maps.ctrl.dart';
 part 'c.maps.view.dart';
 part 'widgets/a.maps.appbar.dart';
 part 'widgets/b.maps.fab.dart';
-part 'widgets/c.maps.charlie.dart';
+part 'widgets/c.maps.buttons.dart';
 part 'widgets/d.maps.delta.dart';
 part 'widgets/e.maps.echo.dart';
 
