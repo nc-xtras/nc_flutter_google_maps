@@ -25,7 +25,7 @@
 ## 🏷️ Introduction to Google Maps in Flutter <a name = "section_1"></a>
 
 <div style='text-align: justify;'>
-This is a guide on how you can use Google Maps within your Flutter application using this package, `flutter_google_maps`. This plugin provides access to native Google Maps SDK for iOS and Android
+This is a guide on how you can use Google Maps within your Flutter application using this package, `google_maps_flutter` and `google_maps_flutter_web` (for web). This plugin provides access to native Google Maps SDK for iOS and Android
 This repository contains a simple implementation of using Google Maps SDK within a Flutter application, show casing how you can use it for displaying maps and adding markers on them.
 </div>
 
