@@ -100,3 +100,5 @@ To display the map you can be creative in your own way and if necessary the nc_f
 - [Google Maps for Flutter](https://blog.logrocket.com/google-maps-flutter/)
 - [A Comprehensive Guide to Using Google Maps in Flutter](https://medium.com/@samra.sajjad0001/a-comprehensive-guide-to-using-google-maps-in-flutter-3fbc0f7d469e)
 - [NC Flutter Google Maps](https://github.com/nc-xtras/nc_flutter_google_maps)
+- [Package: google_maps_flutter](https://pub.dev/packages/google_maps_flutter)
+- [Package: google_maps_flutter_web](https://pub.dev/packages/google_maps_flutter_web)
