@@ -14,6 +14,11 @@ dependencies:
 
   cupertino_icons: ^1.0.2
   states_rebuilder: ^6.3.0
+  #* google maps package
+  google_maps_flutter: ^2.5.3 # check for the latest version
+  #* google maps package for web
+  google_maps_flutter_web: ^0.5.4+3 # check for the latest version
+  firebase_core: ^2.25.4
 
 dev_dependencies:
   flutter_test:
