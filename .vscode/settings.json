@@ -47,7 +47,6 @@
     "*README.*": true,
     "*test": true,
     "*test.*": true,
-    "*web": true,
     "*web.*": true,
     "*windows": true,
     "*windows.*": true
