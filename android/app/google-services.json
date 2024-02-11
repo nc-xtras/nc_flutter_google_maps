@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "147051352354",
+    "project_id": "nc-flutter-gmaps",
+    "storage_bucket": "nc-flutter-gmaps.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147051352354:android:03034abc1d3121b482d57b",
+        "android_client_info": {
+          "package_name": "com.example.nc_flutter_google_maps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkWaNL-BWuCsXrB4H1acnfDHWcxC8Q7hk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
