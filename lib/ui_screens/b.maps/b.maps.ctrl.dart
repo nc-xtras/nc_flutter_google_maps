@@ -16,4 +16,10 @@ class MapsCtrl {
   updateTilt(double degree) => _sv.updateTilt(degree);
 
   updateZoom(double level) => _sv.updateZoom(level);
+
+  changeMapType(MapType type) => _sv.changeMapType(type);
+
+  onCameraIdle() => _sv.onCameraIdle();
+
+  setMapFitToPolygon(String id) => _sv.setMapFitToPoligon(id);
 }

@@ -6,4 +6,8 @@ class MapsRepo {
     logz.s('random value coming from MapsRepo');
     return x;
   }
+
+  Future<List<Vector>> loadVectors() async {
+    throw UnimplementedError();
+  }
 }

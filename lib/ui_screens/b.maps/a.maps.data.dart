@@ -14,4 +14,10 @@ class MapsData {
   final rxTilt = _pv.rxTilt;
 
   final rxZoom = _pv.rxZoom;
+
+  final rxMapType = _pv.rxMapType;
+
+  final rxVector = _pv.rxVectors;
+
+  final rxPolygons = _pv.rxPolygons;
 }

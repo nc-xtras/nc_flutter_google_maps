@@ -18,6 +18,9 @@ class MapsView extends StatelessWidget {
               () => GoogleMap(
                 initialCameraPosition: _ct.getCameraPosition(),
                 onMapCreated: _sv.onMapCreated,
+                mapType: _dt.rxMapType.st,
+                onCameraIdle: () => _ct.onCameraIdle(),
+                polygons: _dt.rxPolygons.st,
               ),
             ),
           )

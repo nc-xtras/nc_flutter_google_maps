@@ -9,13 +9,40 @@ class MapsProv {
     ),
   );
 
-  final rxGmapCompleter =
-      RM.inject<Completer<GoogleMapController>>(() => Completer<GoogleMapController>(), autoDisposeWhenNotUsed: false);
+  final rxSelectedId = ''.inj();
+
+  final rxPolygons = RM.inject<Set<Polygon>>(
+    () => HashSet<Polygon>(),
+    autoDisposeWhenNotUsed: false,
+  );
+
+  final rxVectors = RM.injectFuture<List<Vector>>(
+    () => Future.value([]),
+    autoDisposeWhenNotUsed: false,
+    sideEffects: SideEffects(
+      initState: () => _sv.initVectors(),
+      onSetState: (snap) {
+        if (snap.hasData) {
+          _sv.vectorsToPolygons(snap.data!);
+        }
+      },
+    ),
+  );
+
+  final rxGmapCompleter = RM.inject<Completer<GoogleMapController>>(
+    () => Completer<GoogleMapController>(),
+    autoDisposeWhenNotUsed: false,
+  );
 
   final rxGmapController = RM.inject<GoogleMapController?>(() => null);
 
   final rxTarget = RM.inject<LatLng>(
-    () => const LatLng(-7.319563, 108.202972),
+    () => const LatLng(-0.587381208074135, 117.54252383379),
+    autoDisposeWhenNotUsed: false,
+  );
+
+  final rxMapType = RM.inject<MapType>(
+    () => MapType.hybrid,
     autoDisposeWhenNotUsed: false,
   );
 
