@@ -6,7 +6,7 @@ class App extends TopStatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      title: 'NC Flutter Template',
+      title: 'NC Flutter Google Maps',
       debugShowCheckedModeBanner: true,
       theme: themeRM.darkTheme,
       themeMode: themeRM.themeMode,
