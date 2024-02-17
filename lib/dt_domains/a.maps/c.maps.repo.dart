@@ -10,4 +10,8 @@ class MapsRepo {
   Future<List<Vector>> loadVectors() async {
     throw UnimplementedError();
   }
+
+  Future<List<PegatBatumbuk>> loadPegatBatumbuk() async {
+    throw UnimplementedError();
+  }
 }

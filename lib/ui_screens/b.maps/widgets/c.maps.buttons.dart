@@ -18,31 +18,58 @@ class MapsButtons extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             OnBuilder.all(
-              listenTo: _dt.rxVector,
+              listenTo: _dt.rxPegatBatumbukList,
               onWaiting: () => const Center(
                 child: CircularProgressIndicator(),
               ),
               onError: (error, refreshError) => Text('Error: $error'),
               onData: (data) {
-                return Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    ...List.generate(data.length, (index) {
-                      String id = data[index].id;
-                      return ElevatedButton(
-                        onPressed: () {
-                          _ct.setMapFitToPolygon(id);
-                        },
-                        child: Text(id),
-                      );
-                    }),
-                  ],
+                return SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ...List.generate(data.length, (index) {
+                        String id = data[index].properties.name;
+                        return ElevatedButton(
+                          onPressed: () {
+                            _ct.setMapFitToPolygon(id);
+                          },
+                          child: Text(id),
+                        );
+                      }),
+                    ],
+                  ),
                 );
               },
             ),
+            // OnBuilder.all(
+            //   listenTo: _dt.rxVector,
+            //   onWaiting: () => const Center(
+            //     child: CircularProgressIndicator(),
+            //   ),
+            //   onError: (error, refreshError) => Text('Error: $error'),
+            //   onData: (data) {
+            //     return Row(
+            //       mainAxisAlignment: MainAxisAlignment.spaceAround,
+            //       children: [
+            //         ...List.generate(data.length, (index) {
+            //           String id = data[index].id;
+            //           return ElevatedButton(
+            //             onPressed: () {
+            //               _ct.setMapFitToPolygon(id);
+            //             },
+            //             child: Text(id),
+            //           );
+            //         }),
+            //       ],
+            //     );
+            //   },
+            // ),
             OnReactive(
-              () => Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
+              () => Wrap(
+                alignment: WrapAlignment.spaceAround,
+                spacing: 5,
                 children: [
                   OutlinedButton(
                     onPressed: () {

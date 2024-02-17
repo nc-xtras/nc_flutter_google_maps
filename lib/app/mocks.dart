@@ -6,18 +6,22 @@ class Mocks {
   Mocks._privateConstructor();
 
   dynamic vectorRaw;
+  dynamic pegatBatumbukRaw;
 
   Future<void> init() async {
-    initLoadJson();
+    await initLoadJson();
     injectMocks();
   }
 
-  initLoadJson() async {
+  Future<void> initLoadJson() async {
     final vectorJson = await Fun.loadJson('assets/json/vectors.json');
-    logz.i('init vectorJson: $vectorJson');
-    // await Future.delayed(2.seconds);
+
     vectorRaw = vectorJson["data"];
-    logz.i('init vectorRaw: $vectorRaw');
+
+    final pegatBatumbukGeoJson = await Fun.loadJson('assets/json/pegat-batumbuk.geojson');
+    pegatBatumbukRaw = pegatBatumbukGeoJson["features"];
+    // logz.w('${pegatBatumbukGeoJson["features"][0]["geometry"]["coordinates"]}');
+    // logz.i('${pegatBatumbukGeoJson["features"][0]["geometry"]["coordinates"][0][0]}');
   }
 
   injectMocks() {

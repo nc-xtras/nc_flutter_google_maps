@@ -20,4 +20,6 @@ class MapsData {
   final rxVector = _pv.rxVectors;
 
   final rxPolygons = _pv.rxPolygons;
+
+  final rxPegatBatumbukList = _pv.rxPegatBatumbukList;
 }

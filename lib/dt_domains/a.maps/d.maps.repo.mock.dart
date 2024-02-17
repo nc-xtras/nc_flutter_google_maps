@@ -12,15 +12,25 @@ class MapsRepoMock implements MapsRepo {
   Future<List<Vector>> loadVectors() async {
     try {
       List<Vector> vectorList = [];
-      // final result = await Fun.loadJson('assets/json/vectors.json');
-      // await Future.delayed(2.seconds);
-      // final dataRaw = result['data'];
-      // logz.w(dataRaw);
+
       for (var vector in Mocks.instance.vectorRaw) {
         vectorList.add(Vector.fromMap(vector));
       }
-      logz.w(vectorList.toString());
       return vectorList;
+    } catch (e) {
+      logzz.e(MapsRepoMock, 'OnError: $e');
+      rethrow;
+    }
+  }
+
+  @override
+  Future<List<PegatBatumbuk>> loadPegatBatumbuk() async {
+    try {
+      List<PegatBatumbuk> pegatBatumbukList = [];
+      for (var el in Mocks.instance.pegatBatumbukRaw) {
+        pegatBatumbukList.add(PegatBatumbuk.fromMap(el));
+      }
+      return pegatBatumbukList;
     } catch (e) {
       logzz.e(MapsRepoMock, 'OnError: $e');
       rethrow;

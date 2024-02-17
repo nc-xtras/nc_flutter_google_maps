@@ -29,6 +29,19 @@ class MapsProv {
     ),
   );
 
+  final rxPegatBatumbukList = RM.injectFuture<List<PegatBatumbuk>>(
+    () => Future.value([]),
+    autoDisposeWhenNotUsed: false,
+    sideEffects: SideEffects(
+      initState: () => _sv.initPegatPatumbukList(),
+      onSetState: (snap) {
+        if (snap.hasData) {
+          _sv.pegatBatumbukToPolygons(snap.data!);
+        }
+      },
+    ),
+  );
+
   final rxGmapCompleter = RM.inject<Completer<GoogleMapController>>(
     () => Completer<GoogleMapController>(),
     autoDisposeWhenNotUsed: false,
@@ -38,6 +51,10 @@ class MapsProv {
 
   final rxTarget = RM.inject<LatLng>(
     () => const LatLng(-0.587381208074135, 117.54252383379),
+    // () => const LatLng(
+    //   117.891250446226294,
+    //   2.056536580589885,
+    // ),
     autoDisposeWhenNotUsed: false,
   );
 
