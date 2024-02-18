@@ -78,7 +78,6 @@ class MapsServ {
     } else {
       _pv.rxMapType.st = MapType.hybrid;
     }
-    logz.wtf(_pv.rxMapType.st.toString());
   }
 
   animateCamera() {
@@ -113,11 +112,6 @@ class MapsServ {
         if (point.longitude < minLongitude) minLongitude = point.longitude;
         if (point.longitude > maxLongitude) maxLongitude = point.longitude;
       }
-
-      logz.w('minLatitude: $minLatitude');
-      logz.w('maxLatitude $maxLatitude');
-      logz.w('minLongitude $minLongitude');
-      logz.w('maxLongitude $maxLongitude');
 
       _pv.rxGmapController.st?.animateCamera(
         CameraUpdate.newLatLngBounds(
@@ -188,7 +182,6 @@ class MapsServ {
           }
         }
       }
-      logz.i(points.toString());
       polygons.add(
         Polygon(
           polygonId: PolygonId(data[i].properties.name),
@@ -199,7 +192,27 @@ class MapsServ {
           geodesic: true,
           strokeWidth: 1,
           consumeTapEvents: true,
-          onTap: () => _pv.rxSelectedId.st = data[i].properties.name,
+          onTap: () {
+            _pv.rxSelectedId.st = data[i].properties.name;
+            logz.wtf('on click......');
+            nav.toBottomSheet(
+              Column(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.topRight,
+                    child: IconButton(
+                      onPressed: () => nav.back(),
+                      icon: const Icon(Icons.close),
+                    ),
+                  ),
+                  ListTile(
+                    title: HtmlWidget(data[i].properties.description),
+                  ),
+                ],
+              ),
+            );
+          },
           visible: true,
         ),
       );

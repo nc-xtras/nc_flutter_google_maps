@@ -20,6 +20,7 @@ dependencies:
   google_maps_flutter_web: ^0.5.4+3 # check for the latest version
   firebase_core: ^2.25.4
   geolocator: ^10.1.1
+  flutter_widget_from_html: ^0.14.11
 
 dev_dependencies:
   flutter_test:
