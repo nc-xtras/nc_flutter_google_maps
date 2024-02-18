@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:states_rebuilder/states_rebuilder.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import '../../app/_index.dart';
 import '../../dt_domains/_index.dart';

@@ -7,137 +7,31 @@ class MapsButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.all(10),
-      child: Container(
-        constraints: const BoxConstraints(
-          minWidth: 50,
+    return Align(
+      alignment: Alignment.topCenter,
+      child: OnBuilder.all(
+        listenTo: _dt.rxPegatBatumbukList,
+        onWaiting: () => const Center(
+          child: CircularProgressIndicator(),
         ),
-        width: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            OnBuilder.all(
-              listenTo: _dt.rxPegatBatumbukList,
-              onWaiting: () => const Center(
-                child: CircularProgressIndicator(),
-              ),
-              onError: (error, refreshError) => Text('Error: $error'),
-              onData: (data) {
-                return SingleChildScrollView(
-                  scrollDirection: Axis.horizontal,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ...List.generate(data.length, (index) {
-                        String id = data[index].properties.name;
-                        return ElevatedButton(
-                          onPressed: () {
-                            _ct.setMapFitToPolygon(id);
-                          },
-                          child: Text(id),
-                        );
-                      }),
-                    ],
-                  ),
+        onError: (error, refreshError) => Text('Error: $error'),
+        onData: (data) {
+          return Wrap(
+            alignment: WrapAlignment.spaceAround,
+            spacing: 5,
+            children: [
+              ...List.generate(data.length, (index) {
+                String id = data[index].properties.name;
+                return ElevatedButton(
+                  onPressed: () {
+                    _ct.setMapFitToPolygon(id);
+                  },
+                  child: Text(id),
                 );
-              },
-            ),
-            // OnBuilder.all(
-            //   listenTo: _dt.rxVector,
-            //   onWaiting: () => const Center(
-            //     child: CircularProgressIndicator(),
-            //   ),
-            //   onError: (error, refreshError) => Text('Error: $error'),
-            //   onData: (data) {
-            //     return Row(
-            //       mainAxisAlignment: MainAxisAlignment.spaceAround,
-            //       children: [
-            //         ...List.generate(data.length, (index) {
-            //           String id = data[index].id;
-            //           return ElevatedButton(
-            //             onPressed: () {
-            //               _ct.setMapFitToPolygon(id);
-            //             },
-            //             child: Text(id),
-            //           );
-            //         }),
-            //       ],
-            //     );
-            //   },
-            // ),
-            OnReactive(
-              () => Wrap(
-                alignment: WrapAlignment.spaceAround,
-                spacing: 5,
-                children: [
-                  OutlinedButton(
-                    onPressed: () {
-                      _ct.updateBearing(-90);
-                    },
-                    child: const Text('Rotate -90'),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {
-                      _ct.updateBearing(90);
-                    },
-                    child: const Text('Rotate 90'),
-                  ),
-                  OutlinedButton(
-                    onPressed: _dt.rxTilt.st == 0
-                        ? () {
-                            _ct.updateTilt(90);
-                          }
-                        : null,
-                    child: const Text('tilt 90'),
-                  ),
-                  OutlinedButton(
-                    onPressed: _dt.rxTilt.st != 0
-                        ? () {
-                            _ct.updateTilt(0);
-                          }
-                        : null,
-                    child: const Text('tilt 0'),
-                  ),
-                  OutlinedButton(
-                    onPressed: _dt.rxZoom.st < 21
-                        ? () {
-                            _ct.updateZoom(3);
-                          }
-                        : null,
-                    child: const Text('zoom in'),
-                  ),
-                  OutlinedButton(
-                    onPressed: _dt.rxZoom.st > 0
-                        ? () {
-                            _ct.updateZoom(-3);
-                          }
-                        : null,
-                    child: const Text('zoom out'),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {
-                      _ct.changeMapType(MapType.normal);
-                    },
-                    child: const Text('normal'),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {
-                      _ct.changeMapType(MapType.terrain);
-                    },
-                    child: const Text('terrain'),
-                  ),
-                  OutlinedButton(
-                    onPressed: () {
-                      _ct.changeMapType(MapType.hybrid);
-                    },
-                    child: const Text('hybrid'),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
+              }),
+            ],
+          );
+        },
       ),
     );
   }

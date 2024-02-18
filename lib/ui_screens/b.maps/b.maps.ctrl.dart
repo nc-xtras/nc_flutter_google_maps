@@ -17,7 +17,7 @@ class MapsCtrl {
 
   updateZoom(double level) => _sv.updateZoom(level);
 
-  changeMapType(MapType type) => _sv.changeMapType(type);
+  changeMapType() => _sv.changeMapType();
 
   onCameraIdle() => _sv.onCameraIdle();
 

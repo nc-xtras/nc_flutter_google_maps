@@ -54,11 +54,14 @@ class MapsServ {
   }
 
   Future<void> updateTilt(double degree) async {
-    if (degree == 0) {
-      _pv.rxTilt.st = 0.0;
-    } else {
+    if (_pv.rxTilt.st == 0) {
       _pv.rxTilt.st = _pv.rxTilt.st + degree;
+    } else {
+      if (degree == 0) {
+        _pv.rxTilt.st = 0.0;
+      }
     }
+
     animateCamera();
   }
 
@@ -67,8 +70,15 @@ class MapsServ {
     animateCamera();
   }
 
-  changeMapType(MapType type) {
-    _pv.rxMapType.st = type;
+  changeMapType() {
+    if (_pv.rxMapType.st == MapType.hybrid) {
+      _pv.rxMapType.st = MapType.normal;
+    } else if (_pv.rxMapType.st == MapType.normal) {
+      _pv.rxMapType.st = MapType.terrain;
+    } else {
+      _pv.rxMapType.st = MapType.hybrid;
+    }
+    logz.wtf(_pv.rxMapType.st.toString());
   }
 
   animateCamera() {
@@ -90,11 +100,7 @@ class MapsServ {
 
   void setMapFitToPoligon(String id) {
     try {
-      logz.wtf(id);
-      logz.wtf(_pv.rxPolygons.st.length.toString());
-      logz.e(_pv.rxPolygons.st.first.polygonId.value.toString());
       final polygon = _pv.rxPolygons.st.lastWhere((element) => element.polygonId.value == id);
-      logz.e(polygon.polygonId.value.toString());
 
       var minLatitude = polygon.points.first.latitude;
       var minLongitude = polygon.points.first.longitude;
@@ -177,8 +183,6 @@ class MapsServ {
         for (var buf3 in buf2) {
           for (var buf4 in buf3) {
             var lat = buf4[1];
-            logz.wtf(lat.toString());
-            // logz.i(lng.toString());
             var lng = buf4[0];
             points.add(LatLng(lat, lng));
           }

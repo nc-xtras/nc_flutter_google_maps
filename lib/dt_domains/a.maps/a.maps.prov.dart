@@ -50,11 +50,12 @@ class MapsProv {
   final rxGmapController = RM.inject<GoogleMapController?>(() => null);
 
   final rxTarget = RM.inject<LatLng>(
-    () => const LatLng(-0.587381208074135, 117.54252383379),
-    // () => const LatLng(
-    //   117.891250446226294,
-    //   2.056536580589885,
-    // ),
+    // () => const LatLng(-0.587381208074135, 117.54252383379),
+    () => const LatLng(
+      2.054318600385664,
+      117.892497651517402,
+    ),
+
     autoDisposeWhenNotUsed: false,
   );
 
